@@ -37,7 +37,7 @@ namespace Exotic_Components
         {
             public AntiBreach(EHullPlatingType inType, int inLevel) : base(inType, inLevel)
             {
-                base.SubType = HullPlatingModManager.Instance.GetHullPlatingIDFromName("AntiBreach");
+                base.SubType = HullPlatingModManager.Instance.GetIDFromName("AntiBreach");
                 base.Level = inLevel;
                 this.Name = "Anti-Breach Plating";
                 this.Desc = "This hull plating covers your entire ship and reinforces your ship systems ensuring that they will NEVER be damaged, however the material used causes you to take double the hull damage!";
@@ -60,7 +60,7 @@ namespace Exotic_Components
         {
             public MegaHullP(EHullPlatingType inType, int inLevel) : base(inType, inLevel)
             {
-                base.SubType = HullPlatingModManager.Instance.GetHullPlatingIDFromName("MegaHullP");
+                base.SubType = HullPlatingModManager.Instance.GetIDFromName("MegaHullP");
                 base.Level = inLevel;
                 this.Name = "Reinforced Hull Plating";
                 this.Desc = "This hull plating is designed to reduce the damage taken by the hull in half, however the ship systems have become more even more exposed, making them take quadruple damage!";
@@ -83,7 +83,7 @@ namespace Exotic_Components
         {
             public TurtleMode(EHullPlatingType inType, int inLevel) : base(inType, inLevel)
             {
-                base.SubType = HullPlatingModManager.Instance.GetHullPlatingIDFromName("TurtleP");
+                base.SubType = HullPlatingModManager.Instance.GetIDFromName("TurtleP");
                 base.Level = inLevel;
                 this.Name = "\'Turtle Plating\'";
                 this.Desc = "This hull plating uses extra reinforced plates that heavily improves hull armor, but the heavy plates will decrease the turret power!";
@@ -112,7 +112,7 @@ namespace Exotic_Components
         {
             public GlassMode(EHullPlatingType inType, int inLevel) : base(inType, inLevel)
             {
-                base.SubType = HullPlatingModManager.Instance.GetHullPlatingIDFromName("GlassP");
+                base.SubType = HullPlatingModManager.Instance.GetIDFromName("GlassP");
                 base.Level = inLevel;
                 this.Name = "\'Glass Plating\'";
                 this.Desc = "This hull plating will connect to all turrets to heavily improve their damage, however they are extremely fragile, this way completely negating armor strengh!";

@@ -44,7 +44,7 @@ namespace Exotic_Components
                 {
                     foreach (PLShipComponent component in __instance.MyStats.GetSlot(ESlotType.E_COMP_VIRUS))
                     {
-                        if (component.SubType == PulsarModLoader.Content.Components.Virus.VirusModManager.Instance.GetVirusIDFromName("Door Stuck"))
+                        if (component.SubType == PulsarModLoader.Content.Components.Virus.VirusModManager.Instance.GetIDFromName("Door Stuck"))
                         {
                             doorshouldstuck = true;
                             break;
@@ -372,7 +372,7 @@ namespace Exotic_Components
                 List<PLShipComponent> CPUs = __instance.MyPlayer.StartingShip.MyStats.GetComponentsOfType(ESlotType.E_COMP_CPU, false);
                 foreach (PLShipComponent plshipComponent in CPUs)
                 {
-                    if (plshipComponent != null && plshipComponent.SubType == CPUModManager.Instance.GetCPUIDFromName("Immortality Processor") && plshipComponent.IsEquipped)
+                    if (plshipComponent != null && plshipComponent.SubType == CPUModManager.Instance.GetIDFromName("Immortality Processor") && plshipComponent.IsEquipped)
                     {
                         __instance.Health = __instance.MaxHealth;
                         return false;

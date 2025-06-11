@@ -59,7 +59,7 @@ namespace Exotic_Components
                 float maxHeat = 1.1f;
                 foreach (PLCPU cpu in ship.MyStats.GetComponentsOfType(ESlotType.E_COMP_CPU).Cast<PLCPU>())
                 {
-                    if (cpu.SubType == CPUModManager.Instance.GetCPUIDFromName("Turret Thermo Boost"))
+                    if (cpu.SubType == CPUModManager.Instance.GetIDFromName("Turret Thermo Boost"))
                     {
                         maxHeat += 0.3f * cpu.LevelMultiplier(0.31f, 1);
                     }
@@ -550,7 +550,7 @@ namespace Exotic_Components
                 bool found = false;
                 foreach (PLShipComponent plshipComponent in componentsOfType2)
                 {
-                    if (plshipComponent != null && plshipComponent.SubType == CPUModManager.Instance.GetCPUIDFromName("The Premonition") && CPUS.The_Premonition.lastLive >= 20 &&
+                    if (plshipComponent != null && plshipComponent.SubType == CPUModManager.Instance.GetIDFromName("The Premonition") && CPUS.The_Premonition.lastLive >= 20 &&
                         PLServer.GetCurrentSector().VisualIndication != ESectorVisualIndication.LCWBATTLE && PLServer.GetCurrentSector().VisualIndication != ESectorVisualIndication.TOPSEC && PLServer.GetCurrentSector().VisualIndication != ESectorVisualIndication.UNSEEN_MS && plshipComponent.IsEquipped)
                     {
                         found = true;
@@ -572,7 +572,7 @@ namespace Exotic_Components
                         if (listofshields.Count <= 0) break;
                         (listofshields[0] as PLShieldGenerator).Current = __instance.ShieldsMax;
                     }
-                    else if (plshipComponent != null && plshipComponent.SubType == CPUModManager.Instance.GetCPUIDFromName("Immortality Processor") && plshipComponent.IsEquipped && !__instance.Ship.IsAbandoned())
+                    else if (plshipComponent != null && plshipComponent.SubType == CPUModManager.Instance.GetIDFromName("Immortality Processor") && plshipComponent.IsEquipped && !__instance.Ship.IsAbandoned())
                     {
                         if (__instance.Ship.GetIsPlayerShip())
                         {
@@ -667,10 +667,10 @@ namespace Exotic_Components
         {
             if (PhotonNetwork.isMasterClient)
             {
-                int subtypeformodded = __instance.SubType - CPUModManager.Instance.VanillaCPUMaxType;
-                if (subtypeformodded > -1 && subtypeformodded < CPUModManager.Instance.CPUTypes.Count && __instance.ShipStats != null)
+                int subtypeformodded = __instance.SubType - CPUModManager.Instance.VanillaMaxType;
+                if (subtypeformodded > -1 && subtypeformodded < CPUModManager.Instance.types.Count && __instance.ShipStats != null)
                 {
-                    CPUModManager.Instance.CPUTypes[subtypeformodded].OnWarp(__instance);
+                    CPUModManager.Instance.types[subtypeformodded].OnWarp(__instance);
                 }
             }
         }
@@ -684,7 +684,7 @@ namespace Exotic_Components
             {
                 foreach (PLShipComponent component in PLEncounterManager.Instance.PlayerShip.MyStats.AllComponents)
                 {
-                    if (component.ActualSlotType == ESlotType.E_COMP_CPU && component.SubType == CPUModManager.Instance.GetCPUIDFromName("Research Scanner") && component.IsEquipped)
+                    if (component.ActualSlotType == ESlotType.E_COMP_CPU && component.SubType == CPUModManager.Instance.GetIDFromName("Research Scanner") && component.IsEquipped)
                     {
                         foreach (PLProbePickup pLProbePickup in Object.FindObjectsOfType<PLProbePickup>())
                         {
@@ -707,7 +707,7 @@ namespace Exotic_Components
         {
             foreach (PLShipComponent component in PLEncounterManager.Instance.PlayerShip.MyStats.AllComponents)
             {
-                if (component.ActualSlotType == ESlotType.E_COMP_CPU && component.SubType == CPUModManager.Instance.GetCPUIDFromName("Assembly Processor") && component.IsEquipped)
+                if (component.ActualSlotType == ESlotType.E_COMP_CPU && component.SubType == CPUModManager.Instance.GetIDFromName("Assembly Processor") && component.IsEquipped)
                 {
                     __result = true;
                     break;

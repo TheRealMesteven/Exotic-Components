@@ -83,7 +83,7 @@ namespace Exotic_Components
             this.HeatGeneratedOnFire = 0.024f;
             this.m_MaxPowerUsage_Watts = 7500f;
             this.m_ProjSpeed = 5000f;
-            base.SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("MachineGunMainTurret"); ;
+            base.SubType = MegaTurretModManager.Instance.GetIDFromName("MachineGunMainTurret"); ;
             this.m_MarketPrice = 24600;
             base.CargoVisualPrefabID = 5;
             this.m_SlotType = ESlotType.E_COMP_MAINTURRET;
@@ -109,7 +109,7 @@ namespace Exotic_Components
             this.HeatGeneratedOnFire = 0.008f;
             this.m_MaxPowerUsage_Watts = 18000f;
             this.m_ProjSpeed = 5000f;
-            base.SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("TweakedMachineGunMainTurret"); ;
+            base.SubType = MegaTurretModManager.Instance.GetIDFromName("TweakedMachineGunMainTurret"); ;
             this.m_MarketPrice = 24600;
             base.CargoVisualPrefabID = 5;
             this.m_SlotType = ESlotType.E_COMP_MAINTURRET;
@@ -130,7 +130,7 @@ namespace Exotic_Components
             this.Name = "Silent Death";
             this.Desc = "A special Sylvassi turret made to fire without breaking the cloak of a ship. Due to the possible malicious uses, it has being marked as a contraband";
             this.m_Damage = 280f;
-            base.SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("SilentDeath");
+            base.SubType = MegaTurretModManager.Instance.GetIDFromName("SilentDeath");
             this.Contraband = true;
             this.m_MarketPrice = 42200;
             this.FireDelay = 13f;
@@ -178,7 +178,7 @@ namespace Exotic_Components
             return (150f + (1f - Mathf.Clamp01(Mathf.Abs(Mathf.Pow(num * 100f, 2f) / 10000f))) * (this.m_Damage - 150f)) * base.LevelMultiplier(0.15f, 1f) * base.ShipStats.TurretDamageFactor;
         }
         private float m_VisibleChargeLevel;
-        protected override void ChargeComplete(int inProjID, Vector3 dir)
+        public override void ChargeComplete(int inProjID, Vector3 dir)
         {
             this.LastFireTime = Time.time;
             if (this.TurretInstance == null)
@@ -401,7 +401,7 @@ namespace Exotic_Components
         public FlagShipMainTurret(int inLevel = 0) : base(inLevel)
         {
             Level = inLevel;
-            SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("FlagShipMainTurret");
+            SubType = MegaTurretModManager.Instance.GetIDFromName("FlagShipMainTurret");
             Name = "Flagship MainTurret";
             Desc = "This monster of a turret, that was going to be used in a flagship, will obliterate any ship that faces it, but it does use a lot of power and has a big knockback. Also it will be expensive to equip, because is quite... big for your ship, but if you think you can handle the size.";
             BeamColor = Color.green;
@@ -417,7 +417,7 @@ namespace Exotic_Components
             HasPulseLaser = false;
             HasTrackingMissileCapability = false;
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/CorruptedLaserTurret";
         }
@@ -473,12 +473,12 @@ namespace Exotic_Components
             FireDelay = 14f;
             m_Damage = 650;
             DamageType = EDamageType.E_INFECTED;
-            SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("InfectedBeamMainTurret");
+            SubType = MegaTurretModManager.Instance.GetIDFromName("InfectedBeamMainTurret");
             BeamColor = new Color(204f, 88f, 6f, 0.8f);
             m_MaxPowerUsage_Watts = 18700f;
             Level = inLevel;
         }
-        protected override string GetDamageTypeString()
+        public override string GetDamageTypeString()
         {
             return "INFECTED (BEAM)";
         }
@@ -496,7 +496,7 @@ namespace Exotic_Components
             m_MarketPrice = 39000;
             HeatGeneratedOnFire = 0.05f;
             CoolingRateModifier = 0.5f;
-            SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("FakeKeeperBeamTurret");
+            SubType = MegaTurretModManager.Instance.GetIDFromName("FakeKeeperBeamTurret");
             BeamActiveTime = 50000f;
         }
         public override void Tick()
@@ -520,12 +520,12 @@ namespace Exotic_Components
         {
             base.CalculatedMaxPowerUsage_Watts = 25600f * base.LevelMultiplier(0.1f, 1f);
         }
-        protected override void UpdatePowerUsage(PLPlayer currentOperator)
+        public override void UpdatePowerUsage(PLPlayer currentOperator)
         {
             base.UpdatePowerUsage(currentOperator);
             if (IsBeamActive) RequestPowerUsage_Percent = ShipStats.Ship.WeaponsSystem.GetHealthRatio();
         }
-        protected override bool ShouldAIFire(bool operatedByBot, float heatOffset, float heatGeneratedOnFire)
+        public override bool ShouldAIFire(bool operatedByBot, float heatOffset, float heatGeneratedOnFire)
         {
             float num = this.Heat + heatOffset;
             return num < 1f - heatGeneratedOnFire;
@@ -540,7 +540,7 @@ namespace Exotic_Components
             this.m_IconTexture = (Texture2D)Resources.Load("Icons/9_Weapons");
             this.m_Damage = 80f;
             this.baseDamage = 80f;
-            this.SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("InstabilityTurret");
+            this.SubType = MegaTurretModManager.Instance.GetIDFromName("InstabilityTurret");
             this.m_MarketPrice = 62000;
             this.FireDelay = 20f;
             this.m_MaxPowerUsage_Watts = 1f;
@@ -560,11 +560,11 @@ namespace Exotic_Components
             this.DamageType = EDamageType.E_PHYSICAL;
         }
 
-        protected override bool ShouldLookForMissilesToShoot()
+        public override bool ShouldLookForMissilesToShoot()
         {
             return !this.m_IsVisiblyCharging;
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/MegaTurret";
         }
@@ -592,7 +592,7 @@ namespace Exotic_Components
                 }
             }
         }
-        protected override bool AutoAimTrackingIsEnabled()
+        public override bool AutoAimTrackingIsEnabled()
         {
             PLPlayer playerFromPlayerID = PLServer.Instance.GetPlayerFromPlayerID(base.ShipStats.Ship.GetCurrentTurretControllerPlayerID(this.TurretID));
             bool flag = false;
@@ -610,7 +610,7 @@ namespace Exotic_Components
                 inStats.EMSignature += 1f - Mathf.Clamp01(Time.time - this.LastFireTime);
             }
         }
-        protected override string GetDamageTypeString()
+        public override string GetDamageTypeString()
         {
             return "PHYSICAL (BEAM)";
         }
@@ -932,7 +932,7 @@ namespace Exotic_Components
         {
             return false;
         }
-        protected override bool ShouldAIFire(bool operatedByBot, float heatOffset, float heatGeneratedOnFire)
+        public override bool ShouldAIFire(bool operatedByBot, float heatOffset, float heatGeneratedOnFire)
         {
             float num = this.Heat + heatOffset;
             return operatedByBot && num < 0.85f - heatGeneratedOnFire;
@@ -1141,7 +1141,7 @@ namespace Exotic_Components
             this.Desc = "This Main Turret is an upgraded version of the Anti-Shield Turret, with the higher power usage it can now ignore any shield at any time. It may not do much hull damage, but at least no shield will save your targets.";
             this.m_IconTexture = (Texture2D)Resources.Load("Icons/8_Weapons");
             this.m_Damage = 320f;
-            this.SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("PhaseShieldTurret");
+            this.SubType = MegaTurretModManager.Instance.GetIDFromName("PhaseShieldTurret");
             this.m_MarketPrice = 26000;
             this.FireDelay = 4f;
             this.m_MaxPowerUsage_Watts = 17000f;
@@ -1160,7 +1160,7 @@ namespace Exotic_Components
             this.DamageType = EDamageType.E_PHASE;
         }
 
-        protected override string GetDamageTypeString()
+        public override string GetDamageTypeString()
         {
             return "PHASE (BEAM)";
         }
@@ -1172,7 +1172,7 @@ namespace Exotic_Components
             this.Name = "The Matter Phaser";
             this.Desc = "This Phase Turret has been modified to work as a main turret and go through any object, including ships! It has lost some of its potential damage due to this.";
             this.m_Damage = 385f;
-            base.SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("PhaserTurret");
+            base.SubType = MegaTurretModManager.Instance.GetIDFromName("PhaserTurret");
             Experimental = true;
             this.m_MarketPrice = 50200;
             this.FireDelay = 10f;
@@ -1189,11 +1189,11 @@ namespace Exotic_Components
         }
         static int ShotID = -1;
 
-        protected override string GetDamageTypeString()
+        public override string GetDamageTypeString()
         {
             return "PHASE (BEAM)";
         }
-        protected override void ChargeComplete(int inProjID, Vector3 dir)
+        public override void ChargeComplete(int inProjID, Vector3 dir)
         {
             this.LastFireTime = Time.time;
             if (this.TurretInstance == null)
@@ -1420,13 +1420,13 @@ namespace Exotic_Components
             FireDelay = 13f;
             m_Damage = 270;
             DamageType = EDamageType.E_LIGHTNING;
-            SubType = MegaTurretModManager.Instance.GetMegaTurretIDFromName("SuperchargeMainTurret");
+            SubType = MegaTurretModManager.Instance.GetIDFromName("SuperchargeMainTurret");
             BeamColor = Color.cyan;
             m_MaxPowerUsage_Watts = 13000f;
             Level = inLevel;
         }
 
-        protected override string GetDamageTypeString()
+        public override string GetDamageTypeString()
         {
             return "LIGHTNING (BEAM)";
         }

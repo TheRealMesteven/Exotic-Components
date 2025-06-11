@@ -149,7 +149,7 @@ namespace Exotic_Components
             this.TurretRange = 4000f;
             base.CargoVisualPrefabID = 3;
             base.Level = inLevel;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoDefenderTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoDefenderTurret");
             this.AutoAimPowerUsageRequest = 1f;
             this.m_MaxPowerUsage_Watts = 2500f;
             this.HeatGeneratedOnFire = 0.07f;
@@ -222,7 +222,7 @@ namespace Exotic_Components
             }
             yield break;
         }
-        protected override void InnerCheckFire()
+        public override void InnerCheckFire()
         {
             PLServer.Instance.photonView.RPC("AutoTurretFire", PhotonTargets.All, new object[]
             {
@@ -233,7 +233,7 @@ namespace Exotic_Components
             });
             PLServer.Instance.ServerProjIDCounter += this.Offsets_ProjArray.Length;
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/DefenderTurret";
         }
@@ -266,7 +266,7 @@ namespace Exotic_Components
             this.Desc = "Long range laser weapon that is particularly powerful against hulls and ship systems. This is an automated version.";
             this.m_Damage = 34f;
             this.FireDelay = 2f;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoLaserTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoLaserTurret");
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_MarketPrice = 3500;
             base.Level = inLevel;
@@ -292,7 +292,7 @@ namespace Exotic_Components
             this.ProjBeamCounters.Add(inProjID, projBeamCounter);
             return projBeamCounter;
         }
-        protected override void CheckFire()
+        public override void CheckFire()
         {
             if (this.IsFiring && this.ChargeAmount > 0.99f && PhotonNetwork.isMasterClient && !this.IsBeamActive && !this.IsOverheated)
             {
@@ -608,7 +608,7 @@ namespace Exotic_Components
         {
             return false;
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/LaserTurret";
         }
@@ -622,7 +622,7 @@ namespace Exotic_Components
             this.Desc = "High powered laser weapon that is particularly powerful against hulls and ship systems. It is also capable of shooting down some missiles. This is an automatic version.";
             this.m_Damage = 75f;
             this.FireDelay = 6f;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoFocusedLaserTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoFocusedLaserTurret");
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_MarketPrice = 12000;
             base.Level = inLevel;
@@ -634,7 +634,7 @@ namespace Exotic_Components
         {
             this.m_MaxPowerUsage_Watts = 3960f * base.LevelMultiplier(0.2f, 1f);
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/FocusLaserTurret";
         }
@@ -648,7 +648,7 @@ namespace Exotic_Components
             this.Desc = "Laser turret that has been modified by the W.D. Corporation. It can rip off chunks of hull and create scrap that can be sold or processed. This is an automatic version.";
             this.m_Damage = 27f;
             this.FireDelay = 4f;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoScrapperTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoScrapperTurret");
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_MarketPrice = 3500;
             base.Level = inLevel;
@@ -662,7 +662,7 @@ namespace Exotic_Components
             this.StopProjSFX = "stop_ship_generic_external_weapon_laser_projectile";
             this.UpdateMaxPowerUsageWatts();
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/ScrapperTurret";
         }
@@ -678,7 +678,7 @@ namespace Exotic_Components
             this.m_MarketPrice = 500000;
             this.FireDelay = 5f;
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoSentryTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoSentryTurret");
             this.Contraband = true;
             base.CalculatedMaxPowerUsage_Watts = 1200f;
             this.TurretRotationLerpSpeed = 20f;
@@ -689,7 +689,7 @@ namespace Exotic_Components
             this.AutoAim_CanTargetMissiles = false;
             this.TurretRange = 10000f;
         }
-        protected override void OnTurretInstanceCreated()
+        public override void OnTurretInstanceCreated()
         {
             base.OnTurretInstanceCreated();
             this.TurretInstance.BeamObject.GetComponent<Renderer>().material.SetColor("_LaserColor", this.TurretInstance.BeamObject.GetComponent<Renderer>().material.GetColor("_LaserColor") * 5f);
@@ -732,15 +732,15 @@ namespace Exotic_Components
                 }
             }
         }
-        protected override bool AutoAimShouldFireUpon(PLSpaceTarget ship)
+        public override bool AutoAimShouldFireUpon(PLSpaceTarget ship)
         {
             return true;
         }
-        protected override bool AutoAimTrackingIsEnabled()
+        public override bool AutoAimTrackingIsEnabled()
         {
             return true;
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/CorruptedLaserTurret";
         }
@@ -753,7 +753,7 @@ namespace Exotic_Components
             this.Name = "Automated Phase Turret";
             this.Desc = "Fires a beam that pierces through hull and armor to damage internal ship systems. It is not particularly effective at dealing damage to hull or shields. This is an automatic version.";
             this.m_Damage = 165f;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoPhaseTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoPhaseTurret");
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_MarketPrice = 7500;
             this.m_ProjSpeed = 550f;
@@ -787,17 +787,17 @@ namespace Exotic_Components
             this.PlayProjSFX = "play_ship_generic_external_weapon_lightningturret_projectile";
             this.StopProjSFX = "stop_ship_generic_external_weapon_lightningturret_projectile";
             this.LaserDamageType = EDamageType.E_LIGHTNING;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoLightningTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoLightningTurret");
         }
         public override void UpdateMaxPowerUsageWatts()
         {
             base.CalculatedMaxPowerUsage_Watts = 2475f * base.LevelMultiplier(0.2f, 1f);
         }
-        protected override string GetDamageTypeString()
+        public override string GetDamageTypeString()
         {
             return "ENERGY (LTNG)";
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/LightningTurret";
         }
@@ -835,7 +835,7 @@ namespace Exotic_Components
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_SlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_Damage = 60f;
-            this.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoPlasmaTurret");
+            this.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoPlasmaTurret");
             this.m_MarketPrice = 4500;
             this.m_MaxPowerUsage_Watts = 1320f;
             this.m_ProjSpeed = 550f;
@@ -856,7 +856,7 @@ namespace Exotic_Components
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_SlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_Damage = 60f;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoBurstTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoBurstTurret");
             this.m_MarketPrice = 11000;
             this.m_MaxPowerUsage_Watts = 2145f;
             this.m_ProjSpeed = 500f;
@@ -883,7 +883,7 @@ namespace Exotic_Components
             this.m_SlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_Damage = 24f;
             this.FireDelay = 1.7f;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoSpreadshotTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoSpreadshotTurret");
             this.m_MarketPrice = 3800;
             this.m_ProjSpeed = 700f;
             base.CalculatedMaxPowerUsage_Watts = 1188f;
@@ -896,7 +896,7 @@ namespace Exotic_Components
             this.ShotsMax = 3;
             this.ProjectilesPerShot = 10;
         }
-        protected override void OnTurretInstanceCreated()
+        public override void OnTurretInstanceCreated()
         {
             this.TurretInstance.TurretLights = this.TurretInstance.gameObject.GetComponentsInChildren<Light>();
             this.HeatLevelsPerBarrel = new float[3];
@@ -963,7 +963,7 @@ namespace Exotic_Components
             }
         }
 
-        protected override void InnerCheckFire()
+        public override void InnerCheckFire()
         {
             /*
 			if (ShipStats.Ship.GetTurretAtID(AutoTurretID) != this) AutoTurretID += 10;
@@ -990,7 +990,7 @@ namespace Exotic_Components
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_SlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_Damage = 83f;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoFlamelanceTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoFlamelanceTurret");
             this.m_MarketPrice = 27800;
             this.m_MaxPowerUsage_Watts = 3300f;
             this.m_ProjSpeed = 360f;
@@ -1013,7 +1013,7 @@ namespace Exotic_Components
             this.ActualSlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_SlotType = ESlotType.E_COMP_AUTO_TURRET;
             this.m_Damage = 53f;
-            base.SubType = AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoBioHazardTurret");
+            base.SubType = AutoTurretModManager.Instance.GetIDFromName("AutoBioHazardTurret");
             this.m_MarketPrice = 37800;
             this.m_MaxPowerUsage_Watts = 2739f;
             this.m_ProjSpeed = 180f;

@@ -69,7 +69,7 @@ namespace Exotic_Components
             this.OnFire_CameraShakeAmt = 0.8f;
             this.FireTurretSoundSFX = "play_ship_generic_external_weapon_railgun_shoot";
         }
-        protected override string GetTurretPrefabPath()
+        public override string GetTurretPrefabPath()
         {
             return "NetworkPrefabs/Component_Prefabs/RailgunTurretAncient";
         }
@@ -103,7 +103,7 @@ namespace Exotic_Components
             this.Desc = "A weak but special turret that fires a laser at the exact frequency to ignore the target's shield if they are on static.";
             this.m_Damage = 30f;
             this.FireDelay = 2.4f;
-            base.SubType = TurretModManager.Instance.GetTurretIDFromName("Anti-Shield");
+            base.SubType = TurretModManager.Instance.GetIDFromName("Anti-Shield");
             this.m_MarketPrice = 15000;
             base.Level = inLevel;
             base.SubTypeData = (short)inSubTypeData;
@@ -127,7 +127,7 @@ namespace Exotic_Components
             this.Desc = "A weak but special turret that fires a laser at the exact frequency to ignore the target's shield if they are on static. This version was upgraded for more damage";
             this.m_Damage = 69f;
             this.FireDelay = 3.1f;
-            base.SubType = TurretModManager.Instance.GetTurretIDFromName("Tweaked Anti-Shield");
+            base.SubType = TurretModManager.Instance.GetIDFromName("Tweaked Anti-Shield");
             this.m_MarketPrice = 30000;
             base.Level = inLevel;
             base.SubTypeData = (short)inSubTypeData;
@@ -150,7 +150,7 @@ namespace Exotic_Components
             this.Name = "Infected Turret";
             this.Desc = "A dangerous and questionable experiment at using the infected as weapons. Just be careful of possible specimens escaping the ammo silo";
             this.m_Damage = 250f;
-            base.SubType = TurretModManager.Instance.GetTurretIDFromName("Infected Turret");
+            base.SubType = TurretModManager.Instance.GetIDFromName("Infected Turret");
             this.m_MarketPrice = 21000;
             this.Contraband = true;
             this.m_MaxPowerUsage_Watts = 1000f;
@@ -160,7 +160,7 @@ namespace Exotic_Components
             base.Level = inLevel;
         }
 
-        protected override void InnerCheckFire()
+        public override void InnerCheckFire()
         {
             base.InnerCheckFire();
             if (!(ShipStats.Ship is PLShipInfo)) return;
@@ -223,7 +223,7 @@ namespace Exotic_Components
             this.Name = "Hull Smasher";
             this.Desc = "A special Railgun that deals extra damage to hulls and can ignore shields if on modulate, however it has almost no effect against static shields";
             this.m_Damage = 250f;
-            base.SubType = TurretModManager.Instance.GetTurretIDFromName("HullSmasher");
+            base.SubType = TurretModManager.Instance.GetIDFromName("HullSmasher");
             this.m_MarketPrice = 12000;
             this.Experimental = true;
             this.TurretRange = 5000f;
@@ -243,7 +243,7 @@ namespace Exotic_Components
             this.Desc = "A more powerful laser turret that has some kind of portal to another universe (or something like that) and every shot will have a random damage between half and double the base damage, also it has a chance to insta-kill the enemy. You have no conception of how rare that is! IT IS MILLIONS TO ONE!";
             this.m_Damage = 65f;
             this.FireDelay = 5f;
-            base.SubType = TurretModManager.Instance.GetTurretIDFromName("Respected Nullifier Gun");
+            base.SubType = TurretModManager.Instance.GetIDFromName("Respected Nullifier Gun");
             this.m_MarketPrice = 7500;
             base.Level = inLevel;
             base.SubTypeData = (short)inSubTypeData;
@@ -281,7 +281,7 @@ namespace Exotic_Components
             Name = "Paragon Defender Turret";
             Desc = "This special defender turret will cause damage based on the currently equiped missile silo, so go ahead with making some combos with this.";
             Level = inLevel;
-            SubType = TurretModManager.Instance.GetTurretIDFromName("Defender Turret mk2");
+            SubType = TurretModManager.Instance.GetIDFromName("Defender Turret mk2");
             HasTrackingMissileCapability = true;
             Experimental = true;
             TrackerMissileReloadTime = 9999999f;

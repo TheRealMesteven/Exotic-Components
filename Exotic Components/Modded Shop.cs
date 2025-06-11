@@ -254,53 +254,53 @@ namespace Exotic_Components
                 }
                 inPDE.ServerWareIDCounter = currentID;
                 inPDE.Wares.Clear();
-                foreach (PulsarModLoader.Content.Components.Hull.HullMod hull in PulsarModLoader.Content.Components.Hull.HullModManager.Instance.HullTypes)
+                foreach (PulsarModLoader.Content.Components.Hull.HullMod hull in PulsarModLoader.Content.Components.Hull.HullModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(6, PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName(hull.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(6, PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName(hull.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.HullPlating.HullPlatingMod hullPlating in PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.HullPlatingTypes)
+                foreach (PulsarModLoader.Content.Components.HullPlating.HullPlatingMod hullPlating in PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(16, PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetHullPlatingIDFromName(hullPlating.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(16, PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetIDFromName(hullPlating.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.NuclearDevice.NuclearDeviceMod NuclearDevice in PulsarModLoader.Content.Components.NuclearDevice.NuclearDeviceModManager.Instance.NuclearDeviceTypes)
+                foreach (PulsarModLoader.Content.Components.NuclearDevice.NuclearDeviceMod NuclearDevice in PulsarModLoader.Content.Components.NuclearDevice.NuclearDeviceModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(19, PulsarModLoader.Content.Components.NuclearDevice.NuclearDeviceModManager.Instance.GetNuclearDeviceIDFromName(NuclearDevice.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(19, PulsarModLoader.Content.Components.NuclearDevice.NuclearDeviceModManager.Instance.GetIDFromName(NuclearDevice.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.CaptainsChair.CaptainsChairMod CaptainsChair in PulsarModLoader.Content.Components.CaptainsChair.CaptainsChairModManager.Instance.CaptainsChairTypes)
+                foreach (PulsarModLoader.Content.Components.CaptainsChair.CaptainsChairMod CaptainsChair in PulsarModLoader.Content.Components.CaptainsChair.CaptainsChairModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(27, PulsarModLoader.Content.Components.CaptainsChair.CaptainsChairModManager.Instance.GetCaptainsChairIDFromName(CaptainsChair.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(27, PulsarModLoader.Content.Components.CaptainsChair.CaptainsChairModManager.Instance.GetIDFromName(CaptainsChair.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.FBRecipeModule.FBRecipeModuleMod FBRecipeModule in PulsarModLoader.Content.Components.FBRecipeModule.FBRecipeModuleModManager.Instance.FBRecipeModuleTypes)
+                foreach (PulsarModLoader.Content.Components.FBRecipeModule.FBRecipeModuleMod FBRecipeModule in PulsarModLoader.Content.Components.FBRecipeModule.FBRecipeModuleModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(30, PulsarModLoader.Content.Components.FBRecipeModule.FBRecipeModuleModManager.Instance.GetFBRecipeModuleIDFromName(FBRecipeModule.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(30, PulsarModLoader.Content.Components.FBRecipeModule.FBRecipeModuleModManager.Instance.GetIDFromName(FBRecipeModule.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.Shield.ShieldMod Shield in PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.ShieldTypes)
+                foreach (PulsarModLoader.Content.Components.Shield.ShieldMod Shield in PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(1, PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName(Shield.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(1, PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName(Shield.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
                 for (int i = 0; i < 4; i++)
                 {
-                    foreach (PulsarModLoader.Content.Components.Thruster.ThrusterMod Thruster in PulsarModLoader.Content.Components.Thruster.ThrusterModManager.Instance.ThrusterTypes)
+                    foreach (PulsarModLoader.Content.Components.Thruster.ThrusterMod Thruster in PulsarModLoader.Content.Components.Thruster.ThrusterModManager.Instance.types)
                     {
-                        PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(9, PulsarModLoader.Content.Components.Thruster.ThrusterModManager.Instance.GetThrusterIDFromName(Thruster.Name), 0, 0, 12), null);
+                        PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(9, PulsarModLoader.Content.Components.Thruster.ThrusterModManager.Instance.GetIDFromName(Thruster.Name), 0, 0, 12), null);
                         component.NetID = inPDE.ServerWareIDCounter;
                         inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                         inPDE.ServerWareIDCounter++;
@@ -308,61 +308,61 @@ namespace Exotic_Components
                 }
                 for (int i = 0; i < 2; i++)
                 {
-                    foreach (PulsarModLoader.Content.Components.InertiaThruster.InertiaThrusterMod InertiaThruster in PulsarModLoader.Content.Components.InertiaThruster.InertiaThrusterModManager.Instance.InertiaThrusterTypes)
+                    foreach (PulsarModLoader.Content.Components.InertiaThruster.InertiaThrusterMod InertiaThruster in PulsarModLoader.Content.Components.InertiaThruster.InertiaThrusterModManager.Instance.types)
                     {
-                        PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(25, PulsarModLoader.Content.Components.InertiaThruster.InertiaThrusterModManager.Instance.GetInertiaThrusterIDFromName(InertiaThruster.Name), 0, 0, 12), null);
+                        PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(25, PulsarModLoader.Content.Components.InertiaThruster.InertiaThrusterModManager.Instance.GetIDFromName(InertiaThruster.Name), 0, 0, 12), null);
                         component.NetID = inPDE.ServerWareIDCounter;
                         inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                         inPDE.ServerWareIDCounter++;
                     }
                 }
-                foreach (PulsarModLoader.Content.Components.ManeuverThruster.ManeuverThrusterMod ManeuverThruster in PulsarModLoader.Content.Components.ManeuverThruster.ManeuverThrusterModManager.Instance.ManeuverThrusterTypes)
+                foreach (PulsarModLoader.Content.Components.ManeuverThruster.ManeuverThrusterMod ManeuverThruster in PulsarModLoader.Content.Components.ManeuverThruster.ManeuverThrusterModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(26, PulsarModLoader.Content.Components.ManeuverThruster.ManeuverThrusterModManager.Instance.GetManeuverThrusterIDFromName(ManeuverThruster.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(26, PulsarModLoader.Content.Components.ManeuverThruster.ManeuverThrusterModManager.Instance.GetIDFromName(ManeuverThruster.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.Reactor.ReactorMod Reactor in PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.ReactorTypes)
+                foreach (PulsarModLoader.Content.Components.Reactor.ReactorMod Reactor in PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(3, PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName(Reactor.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(3, PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName(Reactor.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.CPU.CPUMod CPU in PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.CPUTypes)
+                foreach (PulsarModLoader.Content.Components.CPU.CPUMod CPU in PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.types)
                 {
                     if (CPU is CPUS.Researcher || CPU is CPUS.CreditLaundering || CPU is CPUS.Upgrader) continue;
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(7, PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetCPUIDFromName(CPU.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(7, PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetIDFromName(CPU.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.MegaTurret.MegaTurretMod MainTurret in PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.MegaTurretTypes)
+                foreach (PulsarModLoader.Content.Components.MegaTurret.MegaTurretMod MainTurret in PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.types)
                 {
                     if (MainTurret is Main_Turrets.TweakedMachineTurretMod) continue;
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(11, PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName(MainTurret.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(11, PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName(MainTurret.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.Missile.MissileMod Missile in PulsarModLoader.Content.Components.Missile.MissileModManager.Instance.MissileTypes)
+                foreach (PulsarModLoader.Content.Components.Missile.MissileMod Missile in PulsarModLoader.Content.Components.Missile.MissileModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(20, PulsarModLoader.Content.Components.Missile.MissileModManager.Instance.GetMissileIDFromName(Missile.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(20, PulsarModLoader.Content.Components.Missile.MissileModManager.Instance.GetIDFromName(Missile.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramMod Program in PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.WarpDriveProgramTypes)
+                foreach (PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramMod Program in PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(17, PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetWarpDriveProgramIDFromName(Program.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(17, PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetIDFromName(Program.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
-                foreach (PulsarModLoader.Content.Components.Extractor.ExtractorMod Extractor in PulsarModLoader.Content.Components.Extractor.ExtractorModManager.Instance.ExtractorTypes)
+                foreach (PulsarModLoader.Content.Components.Extractor.ExtractorMod Extractor in PulsarModLoader.Content.Components.Extractor.ExtractorModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(28, PulsarModLoader.Content.Components.Extractor.ExtractorModManager.Instance.GetExtractorIDFromName(Extractor.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(28, PulsarModLoader.Content.Components.Extractor.ExtractorModManager.Instance.GetIDFromName(Extractor.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
@@ -371,9 +371,9 @@ namespace Exotic_Components
                 {
                     for (int i = 0; i < PLEncounterManager.Instance.PlayerShip.MyStats.GetSlot(ESlotType.E_COMP_AUTO_TURRET).MaxItems; i++)
                     {
-                        foreach (PulsarModLoader.Content.Components.AutoTurret.AutoTurretMod AutoTurret in PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.AutoTurretTypes)
+                        foreach (PulsarModLoader.Content.Components.AutoTurret.AutoTurretMod AutoTurret in PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.types)
                         {
-                            PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(24, PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetAutoTurretIDFromName(AutoTurret.Name), 0, 0, 12), null);
+                            PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(24, PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetIDFromName(AutoTurret.Name), 0, 0, 12), null);
                             component.NetID = inPDE.ServerWareIDCounter;
                             inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                             inPDE.ServerWareIDCounter++;
@@ -382,27 +382,27 @@ namespace Exotic_Components
                 }
                 for (int i = 0; i < 2; i++)
                 {
-                    foreach (PulsarModLoader.Content.Components.Turret.TurretMod Turret in PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.TurretTypes)
+                    foreach (PulsarModLoader.Content.Components.Turret.TurretMod Turret in PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.types)
                     {
                         if (Turret is Turrets.TweakedAntiShieldMod || Turret is Turrets.RNG) continue;
-                        PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(10, PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName(Turret.Name), 0, 0, 12), null);
+                        PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(10, PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName(Turret.Name), 0, 0, 12), null);
                         component.NetID = inPDE.ServerWareIDCounter;
                         inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                         inPDE.ServerWareIDCounter++;
                     }
                 }
-                foreach (PulsarModLoader.Content.Components.WarpDrive.WarpDriveMod WarpDrive in PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.WarpDriveTypes)
+                foreach (PulsarModLoader.Content.Components.WarpDrive.WarpDriveMod WarpDrive in PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.types)
                 {
-                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(2, PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName(WarpDrive.Name), 0, 0, 12), null);
+                    PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(2, PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName(WarpDrive.Name), 0, 0, 12), null);
                     component.NetID = inPDE.ServerWareIDCounter;
                     inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                     inPDE.ServerWareIDCounter++;
                 }
                 if (PLServer.Instance.CrewFactionID == 5)
                 {
-                    foreach (PulsarModLoader.Content.Components.PolytechModule.PolytechModuleMod polytechModule in PulsarModLoader.Content.Components.PolytechModule.PolytechModuleModManager.Instance.PolytechModuleTypes)
+                    foreach (PulsarModLoader.Content.Components.PolytechModule.PolytechModuleMod polytechModule in PulsarModLoader.Content.Components.PolytechModule.PolytechModuleModManager.Instance.types)
                     {
-                        PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(34, PulsarModLoader.Content.Components.PolytechModule.PolytechModuleModManager.Instance.GetPolytechModuleIDFromName(polytechModule.Name), 0, 0, 12), null);
+                        PLShipComponent component = PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(34, PulsarModLoader.Content.Components.PolytechModule.PolytechModuleModManager.Instance.GetIDFromName(polytechModule.Name), 0, 0, 12), null);
                         component.NetID = inPDE.ServerWareIDCounter;
                         inPDE.Wares.Add(inPDE.ServerWareIDCounter, component);
                         inPDE.ServerWareIDCounter++;

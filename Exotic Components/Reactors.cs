@@ -681,24 +681,24 @@ namespace Exotic_Components
                 switch (__instance.ActualSlotType)
                 {
                     case ESlotType.E_COMP_REACTOR:
-                        int subtypeformodded = __instance.SubType - ReactorModManager.Instance.VanillaReactorMaxType;
-                        if (subtypeformodded > -1 && subtypeformodded < ReactorModManager.Instance.ReactorTypes.Count && __instance.ShipStats != null)
+                        int subtypeformodded = __instance.SubType - ReactorModManager.Instance.VanillaMaxType;
+                        if (subtypeformodded > -1 && subtypeformodded < ReactorModManager.Instance.types.Count && __instance.ShipStats != null)
                         {
-                            ReactorModManager.Instance.ReactorTypes[subtypeformodded].FinalLateAddStats(__instance);
+                            ReactorModManager.Instance.types[subtypeformodded].FinalLateAddStats(__instance);
                         }
                         break;
                     case ESlotType.E_COMP_SHLD:
-                        int subtypeformoddeds = __instance.SubType - ShieldModManager.Instance.VanillaShieldMaxType;
-                        if (subtypeformoddeds > -1 && subtypeformoddeds < ShieldModManager.Instance.ShieldTypes.Count && __instance.ShipStats != null)
+                        int subtypeformoddeds = __instance.SubType - ShieldModManager.Instance.VanillaMaxType;
+                        if (subtypeformoddeds > -1 && subtypeformoddeds < ShieldModManager.Instance.types.Count && __instance.ShipStats != null)
                         {
-                            ShieldModManager.Instance.ShieldTypes[subtypeformoddeds].FinalLateAddStats(__instance);
+                            ShieldModManager.Instance.types[subtypeformoddeds].FinalLateAddStats(__instance);
                         }
                         break;
                     case ESlotType.E_COMP_HULL:
-                        int subtypeformoddedh = __instance.SubType - HullModManager.Instance.VanillaHullMaxType;
-                        if (subtypeformoddedh > -1 && subtypeformoddedh < HullModManager.Instance.HullTypes.Count && __instance.ShipStats != null)
+                        int subtypeformoddedh = __instance.SubType - HullModManager.Instance.VanillaMaxType;
+                        if (subtypeformoddedh > -1 && subtypeformoddedh < HullModManager.Instance.types.Count && __instance.ShipStats != null)
                         {
-                            HullModManager.Instance.HullTypes[subtypeformoddedh].FinalLateAddStats(__instance);
+                            HullModManager.Instance.types[subtypeformoddedh].FinalLateAddStats(__instance);
                         }
                         break;
                 }
@@ -813,10 +813,10 @@ namespace Exotic_Components
             {
                 PLReactor pLReactor = __instance as PLReactor;
                 if (pLReactor == null) return true;
-                int subtypeformodded = pLReactor.SubType - ReactorModManager.Instance.VanillaReactorMaxType;
-                if (subtypeformodded > -1 && subtypeformodded < ReactorModManager.Instance.ReactorTypes.Count && pLReactor.ShipStats != null)
+                int subtypeformodded = pLReactor.SubType - ReactorModManager.Instance.VanillaMaxType;
+                if (subtypeformodded > -1 && subtypeformodded < ReactorModManager.Instance.types.Count && pLReactor.ShipStats != null)
                 {
-                    ReactorModManager.Instance.ReactorTypes[subtypeformodded].OnWarp(pLReactor);
+                    ReactorModManager.Instance.types[subtypeformodded].OnWarp(pLReactor);
                     return false;
                 }
                 return true;

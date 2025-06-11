@@ -1,12 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using HarmonyLib;
 using PulsarModLoader;
 using static Exotic_Components.Gauntlet.Patches;
-using System.Collections;
-using System.Web;
-using System.ComponentModel;
 using PulsarModLoader.Content.Components.CPU;
 namespace Exotic_Components
 {
@@ -846,7 +842,7 @@ namespace Exotic_Components
                                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_WDDRONE1, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                                             overrides = new List<ComponentOverrideData>
                                             {
-                                            new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Nano Active MK2"), ReplaceExistingComp = true, CompLevel = 2, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
+                                            new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Nano Active MK2"), ReplaceExistingComp = true, CompLevel = 2, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
                                             new ComponentOverrideData() { CompType = 3, CompSubType = 6, ReplaceExistingComp = true, CompLevel = 2, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
                                             };
                                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
@@ -857,7 +853,7 @@ namespace Exotic_Components
                                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_WDDRONE2, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                                             overrides = new List<ComponentOverrideData>
                                             {
-                                            new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("PhaserTurret"), ReplaceExistingComp = true, CompLevel = 0, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                                            new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("PhaserTurret"), ReplaceExistingComp = true, CompLevel = 0, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
                                             new ComponentOverrideData() { CompType = 3, CompSubType = 6, ReplaceExistingComp = true, CompLevel = 2, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
                                             };
                                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
@@ -1045,9 +1041,9 @@ namespace Exotic_Components
                                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_WDDRONE2, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                                             overrides = new List<ComponentOverrideData>
                                             {
-                                                new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("PhaseShieldTurret"), ReplaceExistingComp = true, CompLevel = 2, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
-                                                new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Anti-Shield"), ReplaceExistingComp = true, CompLevel = 3, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
-                                                new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("HullSmasher"), ReplaceExistingComp = true, CompLevel = 3, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
+                                                new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("PhaseShieldTurret"), ReplaceExistingComp = true, CompLevel = 2, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                                                new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Anti-Shield"), ReplaceExistingComp = true, CompLevel = 3, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
+                                                new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("HullSmasher"), ReplaceExistingComp = true, CompLevel = 3, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
                                             };
                                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
                                             pLShipInfoBase = PLEncounterManager.Instance.GetCPEI().SpawnEnemyShip(plpersistantShipInfo.Type, plpersistantShipInfo);
@@ -1422,7 +1418,7 @@ namespace Exotic_Components
                             case 5:
                                 PLServer.Instance.CurrentCrewCredits += 80000;
                                 PLServer.Instance.CurrentUpgradeMats += 55;
-                                PLEncounterManager.Instance.PlayerShip.MyStats.AddShipComponent(PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(7, CPUModManager.Instance.GetCPUIDFromName("The Upgrader"), 0, 0, 12), null), -1, ESlotType.E_COMP_CARGO);
+                                PLEncounterManager.Instance.PlayerShip.MyStats.AddShipComponent(PLShipComponent.CreateShipComponentFromHash((int)PLShipComponent.createHashFromInfo(7, CPUModManager.Instance.GetIDFromName("The Upgrader"), 0, 0, 12), null), -1, ESlotType.E_COMP_CARGO);
                                 break;
                             case 6:
                                 PLServer.Instance.CurrentCrewCredits += 100000;
@@ -1469,11 +1465,11 @@ namespace Exotic_Components
                             overrides = new List<ComponentOverrideData>
                             {
                                new ComponentOverrideData() { CompType = 1, CompSubType = 11, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Toxic Wall"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("CryoCore MK2"), ReplaceExistingComp = true, CompLevel = round + 1, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("MachineGunMainTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Supreme RailGun"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Toxic Wall"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("CryoCore MK2"), ReplaceExistingComp = true, CompLevel = round + 1, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("MachineGunMainTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Supreme RailGun"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
 
                             };
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
@@ -1488,13 +1484,13 @@ namespace Exotic_Components
                             overrides = new List<ComponentOverrideData>
                             {
                                new ComponentOverrideData() { CompType = 1, CompSubType = 11, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("The Phase Driver Hull"), ReplaceExistingComp = true, CompLevel = round , IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("ThermoPoint Reactor"), ReplaceExistingComp = true, CompLevel = round + 3, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("PhaserTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("The Phase Driver Hull"), ReplaceExistingComp = true, CompLevel = round , IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("ThermoPoint Reactor"), ReplaceExistingComp = true, CompLevel = round + 3, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("PhaserTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 11, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 7, CompSubType = 14, ReplaceExistingComp = true, CompLevel = round + 4, IsCargo = false, CompTypeToReplace = 7, SlotNumberToReplace = 7},
                                new ComponentOverrideData() { CompType = 20, CompSubType = 9, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 20, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
                             };
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
                             plpersistantShipInfo.ShipName = "Phaser";
@@ -1507,16 +1503,16 @@ namespace Exotic_Components
                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_DESTROYER, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                             overrides = new List<ComponentOverrideData>
                             {
-                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Extreme Particle Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("\"The Wall\""), ReplaceExistingComp = true, CompLevel = round , IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 16, CompSubType = PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetHullPlatingIDFromName("TurtleP"), ReplaceExistingComp = true, CompLevel = 0 , IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("Pipe Reactor"), ReplaceExistingComp = true, CompLevel = round + 2, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Extreme Particle Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("\"The Wall\""), ReplaceExistingComp = true, CompLevel = round , IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 16, CompSubType = PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetIDFromName("TurtleP"), ReplaceExistingComp = true, CompLevel = 0 , IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("Pipe Reactor"), ReplaceExistingComp = true, CompLevel = round + 2, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 11, CompSubType = 5, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 4, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoLightningTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoDefenderTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 1},
-                               new ComponentOverrideData() { CompType = 7, CompSubType = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetCPUIDFromName("Shield Master"), ReplaceExistingComp = true, CompLevel = round - 1, IsCargo = false, CompTypeToReplace = 7, SlotNumberToReplace = 3},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetIDFromName("AutoLightningTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetIDFromName("AutoDefenderTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 1},
+                               new ComponentOverrideData() { CompType = 7, CompSubType = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetIDFromName("Shield Master"), ReplaceExistingComp = true, CompLevel = round - 1, IsCargo = false, CompTypeToReplace = 7, SlotNumberToReplace = 3},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
                             };
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
                             plpersistantShipInfo.ShipName = "The Brick";
@@ -1529,15 +1525,15 @@ namespace Exotic_Components
                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_ANNIHILATOR, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                             overrides = new List<ComponentOverrideData>
                             {
-                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Quantum Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Quantum Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 6, CompSubType = 2, ReplaceExistingComp = true, CompLevel = round + 4, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 16, CompSubType = PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetHullPlatingIDFromName("AntiBreach"), ReplaceExistingComp = true, CompLevel = 0 , IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("Modified Strongpoint Reactor"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("PhaseShieldTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Anti-Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("HullSmasher"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
-                               new ComponentOverrideData() { CompType = 20, CompSubType = PulsarModLoader.Content.Components.Missile.MissileModManager.Instance.GetMissileIDFromName("Armor Denial"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 20, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 16, CompSubType = PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetIDFromName("AntiBreach"), ReplaceExistingComp = true, CompLevel = 0 , IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("Modified Strongpoint Reactor"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("PhaseShieldTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Anti-Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("HullSmasher"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
+                               new ComponentOverrideData() { CompType = 20, CompSubType = PulsarModLoader.Content.Components.Missile.MissileModManager.Instance.GetIDFromName("Armor Denial"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 20, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
                             };
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
                             plpersistantShipInfo.ShipName = "Breached";
@@ -1550,14 +1546,14 @@ namespace Exotic_Components
                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_INTREPID, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                             overrides = new List<ComponentOverrideData>
                             {
-                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Electric Wall"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Electric Wall"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 6, CompSubType = 2, ReplaceExistingComp = true, CompLevel = round , IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("The Overcharge"), ReplaceExistingComp = true, CompLevel = round+2, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("SuperchargeMainTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("The Overcharge"), ReplaceExistingComp = true, CompLevel = round+2, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("SuperchargeMainTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 9, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 9, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
                                new ComponentOverrideData() { CompType = 7, CompSubType = 17, ReplaceExistingComp = true, CompLevel = 0, IsCargo = false, CompTypeToReplace = 7, SlotNumberToReplace = 5},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
                             };
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
                             plpersistantShipInfo.ShipName = "The Shutdown";
@@ -1570,15 +1566,15 @@ namespace Exotic_Components
                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_STARGAZER, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                             overrides = new List<ComponentOverrideData>
                             {
-                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Layered Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Nano Active MK2"), ReplaceExistingComp = true, CompLevel = round + 3, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 16, CompSubType = PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetHullPlatingIDFromName("GlassP"), ReplaceExistingComp = true, CompLevel = 0 , IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("ZeroPoint Reactor"), ReplaceExistingComp = true, CompLevel = round+9, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("SilentDeath"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Layered Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Nano Active MK2"), ReplaceExistingComp = true, CompLevel = round + 3, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 16, CompSubType = PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetIDFromName("GlassP"), ReplaceExistingComp = true, CompLevel = 0 , IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("ZeroPoint Reactor"), ReplaceExistingComp = true, CompLevel = round+9, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("SilentDeath"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 14, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 15, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
                                new ComponentOverrideData() { CompType = 5, CompSubType = 0, ReplaceExistingComp = true, CompLevel = 7, IsCargo = false, CompTypeToReplace = 5, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
                             };
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
                             plpersistantShipInfo.ShipName = "Death's Whisper";
@@ -1591,13 +1587,13 @@ namespace Exotic_Components
                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_CARRIER, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                             overrides = new List<ComponentOverrideData>
                             {
-                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Anti-Infected Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Anti-Infected Hull"), ReplaceExistingComp = true, CompLevel = round , IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("Infected Reactor"), ReplaceExistingComp = true, CompLevel = round+9, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("InfectedBeamMainTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Infected Turret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Infected Turret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Anti-Infected Shield"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Anti-Infected Hull"), ReplaceExistingComp = true, CompLevel = round , IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("Infected Reactor"), ReplaceExistingComp = true, CompLevel = round+9, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("InfectedBeamMainTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Infected Turret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Infected Turret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
                             };
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
                             plpersistantShipInfo.ShipName = "Uninfected Carrier";
@@ -1610,15 +1606,15 @@ namespace Exotic_Components
                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_WDCRUISER, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                             overrides = new List<ComponentOverrideData>
                             {
-                                new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("The Absortion Field"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Nano Active MK2"), ReplaceExistingComp = true, CompLevel = round + 3, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 16, CompSubType = PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetHullPlatingIDFromName("MegaHullP"), ReplaceExistingComp = true, CompLevel = 0 , IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("Overclocked ZeroPoint Reactor"), ReplaceExistingComp = true, CompLevel = round+2, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("FakeKeeperBeamTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                                new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("The Absortion Field"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Nano Active MK2"), ReplaceExistingComp = true, CompLevel = round + 3, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 16, CompSubType = PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetIDFromName("MegaHullP"), ReplaceExistingComp = true, CompLevel = 0 , IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("Overclocked ZeroPoint Reactor"), ReplaceExistingComp = true, CompLevel = round+2, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("FakeKeeperBeamTurret"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 4, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 9, ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
-                               new ComponentOverrideData() { CompType = 7, CompSubType = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetCPUIDFromName("Turret Thermo Boost"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 7, SlotNumberToReplace = 3},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 7, CompSubType = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetIDFromName("Turret Thermo Boost"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 7, SlotNumberToReplace = 3},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
                             };
 
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
@@ -1632,18 +1628,18 @@ namespace Exotic_Components
                             plpersistantShipInfo = new PLPersistantShipInfo(EShipType.E_ROLAND, 1, PLServer.GetCurrentSector(), 0, false, true, false, -1, PLEncounterManager.Instance.PlayerShip.ShipID);
                             overrides = new List<ComponentOverrideData>
                             {
-                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("Flagship Reactor"), ReplaceExistingComp = true, CompLevel = round/10, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("FlagShipMainTurret"), ReplaceExistingComp = true, CompLevel = round/10, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("Flagship Reactor"), ReplaceExistingComp = true, CompLevel = round/10, IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("FlagShipMainTurret"), ReplaceExistingComp = true, CompLevel = round/10, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 4, ReplaceExistingComp = true, CompLevel = round/10 + 4, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
                                new ComponentOverrideData() { CompType = 10, CompSubType = 9, ReplaceExistingComp = true, CompLevel = round/10 + 4, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1},
-                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoLightningTurret"), ReplaceExistingComp = true, CompLevel = round/10 + 4, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoBurstTurret"), ReplaceExistingComp = true, CompLevel = round/10 + 4, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 1},
-                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoDefenderTurret"), ReplaceExistingComp = true, CompLevel = round/10 + 4, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 2},
-                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetAutoTurretIDFromName("AutoSentryTurret"), ReplaceExistingComp = true, CompLevel = round/10, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 3},
+                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetIDFromName("AutoLightningTurret"), ReplaceExistingComp = true, CompLevel = round/10 + 4, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetIDFromName("AutoBurstTurret"), ReplaceExistingComp = true, CompLevel = round/10 + 4, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 1},
+                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetIDFromName("AutoDefenderTurret"), ReplaceExistingComp = true, CompLevel = round/10 + 4, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 2},
+                               new ComponentOverrideData() { CompType = 24, CompSubType = PulsarModLoader.Content.Components.AutoTurret.AutoTurretModManager.Instance.GetIDFromName("AutoSentryTurret"), ReplaceExistingComp = true, CompLevel = round/10, IsCargo = false, CompTypeToReplace = 24, SlotNumberToReplace = 3},
                                new ComponentOverrideData() { CompType = 25, CompSubType = 3, ReplaceExistingComp = true, CompLevel = round/10 + 1, IsCargo = false, CompTypeToReplace = 25, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 9, CompSubType = PulsarModLoader.Content.Components.Thruster.ThrusterModManager.Instance.GetThrusterIDFromName("Flagship Thruster"), ReplaceExistingComp = true, CompLevel = 0, IsCargo = false, CompTypeToReplace = 9, SlotNumberToReplace = 0},
-                               new ComponentOverrideData() { CompType = 7, CompSubType = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetCPUIDFromName("Active Anti-Virus"), ReplaceExistingComp = true, CompLevel = 10, IsCargo = false, CompTypeToReplace = 7, SlotNumberToReplace = 4},
-                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 9, CompSubType = PulsarModLoader.Content.Components.Thruster.ThrusterModManager.Instance.GetIDFromName("Flagship Thruster"), ReplaceExistingComp = true, CompLevel = 0, IsCargo = false, CompTypeToReplace = 9, SlotNumberToReplace = 0},
+                               new ComponentOverrideData() { CompType = 7, CompSubType = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetIDFromName("Active Anti-Virus"), ReplaceExistingComp = true, CompLevel = 10, IsCargo = false, CompTypeToReplace = 7, SlotNumberToReplace = 4},
+                               new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("The Recharger"), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
                             };
                             if (round < 20)
                             {
@@ -1651,7 +1647,7 @@ namespace Exotic_Components
                             }
                             else
                             {
-                                overrides.Add(new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Flagship Hull"), ReplaceExistingComp = true, CompLevel = round / 10, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0 });
+                                overrides.Add(new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Flagship Hull"), ReplaceExistingComp = true, CompLevel = round / 10, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0 });
                             }
                             if (round < 30)
                             {
@@ -1659,7 +1655,7 @@ namespace Exotic_Components
                             }
                             else
                             {
-                                overrides.Add(new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Flagship Shield"), ReplaceExistingComp = true, CompLevel = round / 10, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0 });
+                                overrides.Add(new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Flagship Shield"), ReplaceExistingComp = true, CompLevel = round / 10, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0 });
                             }
                             plpersistantShipInfo.CompOverrides.AddRange(overrides);
                             plpersistantShipInfo.ShipName = "The Executioner";
@@ -1711,8 +1707,8 @@ namespace Exotic_Components
                         13,
                         18,
                         16,
-                        PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Layered Shield"),
-                        PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Electric Wall"),
+                        PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Layered Shield"),
+                        PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Electric Wall"),
                     };
                     overrides.Add(new ComponentOverrideData() { CompType = 1, CompSubType = CompFromLists(compTypes, exoticTypes, round), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0 });
 
@@ -1723,9 +1719,9 @@ namespace Exotic_Components
                     };
                     exoticTypes = new List<int>
                     {
-                        PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Nano Active MK2"),
-                        PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Toxic Wall"),
-                        PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("\"The Wall\""),
+                        PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Nano Active MK2"),
+                        PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Toxic Wall"),
+                        PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("\"The Wall\""),
                     };
                     overrides.Add(new ComponentOverrideData() { CompType = 6, CompSubType = CompFromLists(compTypes, exoticTypes, round), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0 });
 
@@ -1741,9 +1737,9 @@ namespace Exotic_Components
                         0,
                         0,
                         0,
-                        PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetHullPlatingIDFromName("MegaHullP"),
-                        PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetHullPlatingIDFromName("TurtleP"),
-                        PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetHullPlatingIDFromName("GlassP"),
+                        PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetIDFromName("MegaHullP"),
+                        PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetIDFromName("TurtleP"),
+                        PulsarModLoader.Content.Components.HullPlating.HullPlatingModManager.Instance.GetIDFromName("GlassP"),
                     };
                     overrides.Add(new ComponentOverrideData() { CompType = 16, CompSubType = CompFromLists(compTypes, exoticTypes, round), ReplaceExistingComp = true, CompLevel = 0, IsCargo = false, CompTypeToReplace = 16, SlotNumberToReplace = 0 });
 
@@ -1768,12 +1764,12 @@ namespace Exotic_Components
                         3,
                         14,
                         15,
-                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Supreme RailGun"),
-                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Anti-Shield"),
-                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("HullSmasher"),
-                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Infected Turret"),
-                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Respected Nullifier Gun"),
-                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Defender Turret mk2"),
+                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Supreme RailGun"),
+                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Anti-Shield"),
+                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("HullSmasher"),
+                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Infected Turret"),
+                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Respected Nullifier Gun"),
+                        PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Defender Turret mk2"),
                     };
                         overrides.Add(new ComponentOverrideData() { CompType = 10, CompSubType = CompFromLists(compTypes, exoticTypes, round), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0 });
                         overrides.Add(new ComponentOverrideData() { CompType = 10, CompSubType = CompFromLists(compTypes, exoticTypes, round), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 1 });
@@ -1797,12 +1793,12 @@ namespace Exotic_Components
                         4,
                         5,
                         6,
-                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("SuperchargeMainTurret"),
-                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("MachineGunMainTurret"),
-                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("InfectedBeamMainTurret"),
-                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("FakeKeeperBeamTurret"),
-                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("PhaseShieldTurret"),
-                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("PhaserTurret"),
+                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("SuperchargeMainTurret"),
+                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("MachineGunMainTurret"),
+                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("InfectedBeamMainTurret"),
+                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("FakeKeeperBeamTurret"),
+                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("PhaseShieldTurret"),
+                        PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("PhaserTurret"),
                     };
                     overrides.Add(new ComponentOverrideData() { CompType = 11, CompSubType = CompFromLists(compTypes, exoticTypes, round), ReplaceExistingComp = true, CompLevel = round, IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0 });
 

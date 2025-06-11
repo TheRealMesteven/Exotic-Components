@@ -9,7 +9,7 @@ namespace Exotic_Components
     {
         public class RecoverCPU
         {
-            public static ComponentOverrideData data = new ComponentOverrideData() { CompType = 23, CompSubType = MissionShipComponentModManager.Instance.GetMissionShipComponentIDFromName("Intergalatic Jump Processor Core"), IsCargo = true };
+            public static ComponentOverrideData data = new ComponentOverrideData() { CompType = 23, CompSubType = MissionShipComponentModManager.Instance.GetIDFromName("Intergalatic Jump Processor Core"), IsCargo = true };
             public static PickupMissionData Missiondata
             {
                 get
@@ -33,7 +33,7 @@ namespace Exotic_Components
                 {
                     RewardAmount = 0,
                     RewardDataA = 7,
-                    RewardDataB = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetCPUIDFromName("Research Processor"),
+                    RewardDataB = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetIDFromName("Research Processor"),
                     RwdType = 3
                 }
             };
@@ -45,7 +45,7 @@ namespace Exotic_Components
                     Data = new Dictionary<string, string>
                     {
                         {"PC_ComponentType","E_COMP_MISSION_COMPONENT"},
-                        {"PC_SubType",MissionShipComponentModManager.Instance.GetMissionShipComponentIDFromName("Intergalatic Jump Processor Core").ToString()},
+                        {"PC_SubType",MissionShipComponentModManager.Instance.GetIDFromName("Intergalatic Jump Processor Core").ToString()},
                         {"PC_CompName","Intergalatic Jump Processor Core"},
                         {"PC_AmountNeeded","1"},
                         {"PC_RemoveComponents","true"},
@@ -94,7 +94,7 @@ namespace Exotic_Components
                 PickupMissionData missionData = Missiondata;
                 List<PLMissionObjective> objectives = new List<PLMissionObjective>
                 {
-                new PLMissionObjective_PickupComponent(ESlotType.E_COMP_MISSION_COMPONENT, MissionShipComponentModManager.Instance.GetMissionShipComponentIDFromName("Intergalatic Jump Processor Core"), "Intergalatic Jump Processor Core") { RawCustomText = ""},
+                new PLMissionObjective_PickupComponent(ESlotType.E_COMP_MISSION_COMPONENT, MissionShipComponentModManager.Instance.GetIDFromName("Intergalatic Jump Processor Core"), "Intergalatic Jump Processor Core") { RawCustomText = ""},
                 new PLMissionObjective_CompleteWithinJumpCount(14) { RawCustomText = "" },
                 new PLMissionObjective_Custom() { CustomTextOriginal = "Deliver processor to The Core", RawCustomText = "Deliver processor to The Core" }
                 };
@@ -149,7 +149,7 @@ namespace Exotic_Components
         }
         public class Testa
         {
-            public static ComponentOverrideData data = new ComponentOverrideData() { CompType = 23, CompSubType = MissionShipComponentModManager.Instance.GetMissionShipComponentIDFromName("Intergalatic Jump Processor Core"), IsCargo = true };
+            public static ComponentOverrideData data = new ComponentOverrideData() { CompType = 23, CompSubType = MissionShipComponentModManager.Instance.GetIDFromName("Intergalatic Jump Processor Core"), IsCargo = true };
             public static PickupMissionData Missiondata
             {
                 get
@@ -178,7 +178,7 @@ namespace Exotic_Components
                 {
                     RewardAmount = 0,
                     RewardDataA = 7,
-                    RewardDataB = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetCPUIDFromName("Research Processor"),
+                    RewardDataB = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetIDFromName("Research Processor"),
                     RwdType = 3
                 }
             };
@@ -190,7 +190,7 @@ namespace Exotic_Components
                     Data = new Dictionary<string, string>
                     {
                         {"PC_ComponentType","E_COMP_MISSION_COMPONENT"},
-                        {"PC_SubType",MissionShipComponentModManager.Instance.GetMissionShipComponentIDFromName("Intergalatic Jump Processor Core").ToString()},
+                        {"PC_SubType",MissionShipComponentModManager.Instance.GetIDFromName("Intergalatic Jump Processor Core").ToString()},
                         {"PC_CompName","Intergalatic Jump Processor Core"},
                         {"PC_AmountNeeded","1"},
                         {"PC_RemoveComponents","false"},
@@ -248,7 +248,7 @@ namespace Exotic_Components
                 PLCampaignIO.Instance.m_CampaignData.ActorTypes.Add(actor);
                 return missionData;
             }
-            //public static PLMissionObjective_PickupComponent objective = new PLMissionObjective_PickupComponent(ESlotType.E_COMP_MISSION_COMPONENT, MissionShipComponentModManager.Instance.GetMissionShipComponentIDFromName("Intergalatic Jump Processor Core"), "Intergalatic Jump Processor Core") { RawCustomText = ""};
+            //public static PLMissionObjective_PickupComponent objective = new PLMissionObjective_PickupComponent(ESlotType.E_COMP_MISSION_COMPONENT, MissionShipComponentModManager.Instance.GetIDFromName("Intergalatic Jump Processor Core"), "Intergalatic Jump Processor Core") { RawCustomText = ""};
             //public static PLMissionObjective_CompleteWithinJumpCount objective2 = new PLMissionObjective_CompleteWithinJumpCount(14) { RawCustomText = "" };
             //public static PLMissionObjective_Custom objective3 = new PLMissionObjective_Custom() { CustomTextOriginal = "Sell processor to The Core", RawCustomText = "Sell processor to The Core" };
             public static void StartMission(bool loading = false)
@@ -273,7 +273,7 @@ namespace Exotic_Components
                 PickupMissionData missionData = Missiondata;
                 List<PLMissionObjective> objectives = new List<PLMissionObjective>
                 {
-                new PLMissionObjective_PickupComponent(ESlotType.E_COMP_MISSION_COMPONENT, MissionShipComponentModManager.Instance.GetMissionShipComponentIDFromName("Intergalatic Jump Processor Core"), "Intergalatic Jump Processor Core") { RawCustomText = ""},
+                new PLMissionObjective_PickupComponent(ESlotType.E_COMP_MISSION_COMPONENT, MissionShipComponentModManager.Instance.GetIDFromName("Intergalatic Jump Processor Core"), "Intergalatic Jump Processor Core") { RawCustomText = ""},
                 new PLMissionObjective_CompleteWithinJumpCount(14) { RawCustomText = "" },
                 new PLMissionObjective_Custom() { CustomTextOriginal = "Deliver processor to The Core", RawCustomText = "Deliver processor to The Core" }
                 };
@@ -443,17 +443,17 @@ namespace Exotic_Components
                         PLRand shipDeterministicRand = PLShipInfoBase.GetShipDeterministicRand(ship, 0);
                         List<ComponentOverrideData> overrides = new List<ComponentOverrideData>
                     {
-                        new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetShieldIDFromName("Layered Shield"), ReplaceExistingComp = true, CompLevel = 2 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
-                        new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetWarpDriveIDFromName("Ultimate Explorer MK2"), ReplaceExistingComp = true, CompLevel = PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
-                        new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetReactorIDFromName("Steam Core"), ReplaceExistingComp = true, CompLevel =  2 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
+                        new ComponentOverrideData() { CompType = 1, CompSubType = PulsarModLoader.Content.Components.Shield.ShieldModManager.Instance.GetIDFromName("Layered Shield"), ReplaceExistingComp = true, CompLevel = 2 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 1, SlotNumberToReplace = 0},
+                        new ComponentOverrideData() { CompType = 2, CompSubType = PulsarModLoader.Content.Components.WarpDrive.WarpDriveModManager.Instance.GetIDFromName("Ultimate Explorer MK2"), ReplaceExistingComp = true, CompLevel = PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 2, SlotNumberToReplace = 0},
+                        new ComponentOverrideData() { CompType = 3, CompSubType = PulsarModLoader.Content.Components.Reactor.ReactorModManager.Instance.GetIDFromName("Steam Core"), ReplaceExistingComp = true, CompLevel =  2 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 3, SlotNumberToReplace = 0},
                         new ComponentOverrideData() { CompType = 5, CompSubType = 0, ReplaceExistingComp = true, CompLevel = 4 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 5, SlotNumberToReplace = 0},
-                        new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetHullIDFromName("Nano Active MK2"), ReplaceExistingComp = true, CompLevel = 3 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
-                        new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Tweaked Anti-Shield"), ReplaceExistingComp = true, CompLevel = 2 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
-                        new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetMegaTurretIDFromName("TweakedMachineGunMainTurret"), ReplaceExistingComp = true, CompLevel = 2 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
-                        new ComponentOverrideData() { CompType = 17, CompSubType = PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetWarpDriveProgramIDFromName("BlindFold [VIRUS]")},
-                        new ComponentOverrideData() { CompType = 17, CompSubType = PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetWarpDriveProgramIDFromName("DoorStuck [VIRUS]")},
-                        new ComponentOverrideData() { CompType = 17, CompSubType = PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetWarpDriveProgramIDFromName("Anti-Life Pulse")},
-                        new ComponentOverrideData() { CompType = 17, CompSubType = PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetWarpDriveProgramIDFromName("Self Destruction [VIRUS]")},
+                        new ComponentOverrideData() { CompType = 6, CompSubType = PulsarModLoader.Content.Components.Hull.HullModManager.Instance.GetIDFromName("Nano Active MK2"), ReplaceExistingComp = true, CompLevel = 3 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 6, SlotNumberToReplace = 0},
+                        new ComponentOverrideData() { CompType = 10, CompSubType = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Tweaked Anti-Shield"), ReplaceExistingComp = true, CompLevel = 2 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 10, SlotNumberToReplace = 0},
+                        new ComponentOverrideData() { CompType = 11, CompSubType = PulsarModLoader.Content.Components.MegaTurret.MegaTurretModManager.Instance.GetIDFromName("TweakedMachineGunMainTurret"), ReplaceExistingComp = true, CompLevel = 2 + PLShipInfoBase.GetChaosBoost(ship,shipDeterministicRand.Next() % 50), IsCargo = false, CompTypeToReplace = 11, SlotNumberToReplace = 0},
+                        new ComponentOverrideData() { CompType = 17, CompSubType = PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetIDFromName("BlindFold [VIRUS]")},
+                        new ComponentOverrideData() { CompType = 17, CompSubType = PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetIDFromName("DoorStuck [VIRUS]")},
+                        new ComponentOverrideData() { CompType = 17, CompSubType = PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetIDFromName("Anti-Life Pulse")},
+                        new ComponentOverrideData() { CompType = 17, CompSubType = PulsarModLoader.Content.Components.WarpDriveProgram.WarpDriveProgramModManager.Instance.GetIDFromName("Self Destruction [VIRUS]")},
                     };
                         ship.CompOverrides.AddRange(overrides);
                         PLServer.Instance.AllPSIs.Add(ship);
@@ -499,14 +499,14 @@ namespace Exotic_Components
                 {
                     RewardAmount = 0,
                     RewardDataA = 10,
-                    RewardDataB = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Respected Nullifier Gun"),
+                    RewardDataB = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Respected Nullifier Gun"),
                     RwdType = 3
                 },
                 new RewardData()
                 {
                     RewardAmount = 0,
                     RewardDataA = 10,
-                    RewardDataB = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetTurretIDFromName("Respected Nullifier Gun"),
+                    RewardDataB = PulsarModLoader.Content.Components.Turret.TurretModManager.Instance.GetIDFromName("Respected Nullifier Gun"),
                     RwdType = 3
                 }
             };
@@ -669,7 +669,7 @@ namespace Exotic_Components
                 {
                     RewardAmount = 0,
                     RewardDataA = 7,
-                    RewardDataB = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetCPUIDFromName("Credits Processor"),
+                    RewardDataB = PulsarModLoader.Content.Components.CPU.CPUModManager.Instance.GetIDFromName("Credits Processor"),
                     RwdType = 3
                 }
             };

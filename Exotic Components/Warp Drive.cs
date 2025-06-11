@@ -484,10 +484,10 @@ namespace Exotic_Components
     {
         static void Postfix(PLWarpDrive __instance)
         {
-            int subtypeformodded = __instance.SubType - WarpDriveModManager.Instance.VanillaWarpDriveMaxType;
-            if (subtypeformodded > -1 && subtypeformodded < WarpDriveModManager.Instance.WarpDriveTypes.Count && __instance.ShipStats != null)
+            int subtypeformodded = __instance.SubType - WarpDriveModManager.Instance.VanillaMaxType;
+            if (subtypeformodded > -1 && subtypeformodded < WarpDriveModManager.Instance.types.Count && __instance.ShipStats != null)
             {
-                WarpDriveModManager.Instance.WarpDriveTypes[subtypeformodded].OnWarp(__instance);
+                WarpDriveModManager.Instance.types[subtypeformodded].OnWarp(__instance);
             }
             if (PLServer.Instance.ActiveBountyHunter_TypeID == 5 && Missions.DeliverBiscuit.BiscuitShip != null)
             {

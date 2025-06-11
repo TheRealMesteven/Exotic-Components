@@ -72,7 +72,7 @@ namespace Exotic_Components
 
             public override int MarketPrice => 14000;
 
-            public override int VirusSubtype => VirusModManager.Instance.GetVirusIDFromName("Blind Fold");
+            public override int VirusSubtype => VirusModManager.Instance.GetIDFromName("Blind Fold");
 
             public override string ShortName => "BF";
 
@@ -95,7 +95,7 @@ namespace Exotic_Components
 
             public override bool IsVirus => true;
 
-            public override int VirusSubtype => VirusModManager.Instance.GetVirusIDFromName("Self Destruction");
+            public override int VirusSubtype => VirusModManager.Instance.GetIDFromName("Self Destruction");
 
             public override string ShortName => "SFD";
 
@@ -115,7 +115,7 @@ namespace Exotic_Components
 
             public override bool IsVirus => true;
 
-            public override int VirusSubtype => VirusModManager.Instance.GetVirusIDFromName("Friendly Charm");
+            public override int VirusSubtype => VirusModManager.Instance.GetIDFromName("Friendly Charm");
 
             public override string ShortName => "FC";
 
@@ -135,7 +135,7 @@ namespace Exotic_Components
 
             public override int MarketPrice => 7000;
 
-            public override int VirusSubtype => VirusModManager.Instance.GetVirusIDFromName("Door Stuck");
+            public override int VirusSubtype => VirusModManager.Instance.GetIDFromName("Door Stuck");
 
             public override string ShortName => "DS";
 
@@ -326,7 +326,7 @@ namespace Exotic_Components
                 bool Friendly = false;
                 foreach (PLShipComponent component in __instance.MyStats.GetSlot(ESlotType.E_COMP_VIRUS))
                 {
-                    if (component.SubType == VirusModManager.Instance.GetVirusIDFromName("Friendly Charm") && (component as PLVirus).Sender == inShip)
+                    if (component.SubType == VirusModManager.Instance.GetIDFromName("Friendly Charm") && (component as PLVirus).Sender == inShip)
                     {
                         Friendly = true;
                         break;
@@ -366,10 +366,10 @@ namespace Exotic_Components
         {
             PLWarpDriveProgram pLReactor = __instance as PLWarpDriveProgram;
             if (pLReactor == null) return true;
-            int subtypeformodded = pLReactor.SubType - WarpDriveProgramModManager.Instance.VanillaWarpDriveProgramMaxType;
-            if (subtypeformodded > -1 && subtypeformodded < WarpDriveProgramModManager.Instance.WarpDriveProgramTypes.Count && pLReactor.ShipStats != null)
+            int subtypeformodded = pLReactor.SubType - WarpDriveProgramModManager.Instance.VanillaMaxType;
+            if (subtypeformodded > -1 && subtypeformodded < WarpDriveProgramModManager.Instance.types.Count && pLReactor.ShipStats != null)
             {
-                WarpDriveProgramModManager.Instance.WarpDriveProgramTypes[subtypeformodded].OnWarp(pLReactor);
+                WarpDriveProgramModManager.Instance.types[subtypeformodded].OnWarp(pLReactor);
                 return false;
             }
             return true;

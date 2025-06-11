@@ -255,11 +255,11 @@ namespace Exotic_Components
                     float discargeAMT = Mathf.Clamp(inDmg * 0.1f, 0, 0.5f);
                     __instance.Ship.DischargeAmount += discargeAMT;
                 }
-                if (inDmgType == EDamageType.E_INFECTED && inDmg == 10 && HullModManager.Instance.GetHullIDFromName("Anti-Infected Hull") == shipComponent.SubType) 
+                if (inDmgType == EDamageType.E_INFECTED && inDmg == 10 && HullModManager.Instance.GetIDFromName("Anti-Infected Hull") == shipComponent.SubType) 
                 {
                     return false;
                 }
-                else if(inDmgType == EDamageType.E_INFECTED && HullModManager.Instance.GetHullIDFromName("Anti-Infected Hull") == shipComponent.SubType) 
+                else if(inDmgType == EDamageType.E_INFECTED && HullModManager.Instance.GetIDFromName("Anti-Infected Hull") == shipComponent.SubType) 
                 {
                     inDmg *= 0.2f;
                 }

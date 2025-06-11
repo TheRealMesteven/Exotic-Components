@@ -314,10 +314,10 @@ namespace Exotic_Components
         {
             static void Postfix(PLShieldGenerator __instance)
             {
-                int subtypeformodded = __instance.SubType - ShieldModManager.Instance.VanillaShieldMaxType;
-                if (subtypeformodded > -1 && subtypeformodded < ShieldModManager.Instance.ShieldTypes.Count && __instance.ShipStats != null)
+                int subtypeformodded = __instance.SubType - ShieldModManager.Instance.VanillaMaxType;
+                if (subtypeformodded > -1 && subtypeformodded < ShieldModManager.Instance.types.Count && __instance.ShipStats != null)
                 {
-                    ShieldModManager.Instance.ShieldTypes[subtypeformodded].AddStats(__instance);
+                    ShieldModManager.Instance.types[subtypeformodded].AddStats(__instance);
                 }
             }
         }
@@ -355,7 +355,7 @@ namespace Exotic_Components
                 __result = 0f;
                 return false;
             }
-            if (dmgType == EDamageType.E_INFECTED && inDmg == 10 && shipComponent.SubType == ShieldModManager.Instance.GetShieldIDFromName("Anti-Infected Shield"))
+            if (dmgType == EDamageType.E_INFECTED && inDmg == 10 && shipComponent.SubType == ShieldModManager.Instance.GetIDFromName("Anti-Infected Shield"))
             {
                 __result = 0f;
                 return false;
@@ -364,19 +364,19 @@ namespace Exotic_Components
             {
                 inDmg *= 0.7f;
             }
-            if (!PLShipInfoBase.IsDamageTypePhysical(dmgType) && shipComponent.SubType == ShieldModManager.Instance.GetShieldIDFromName("Electric Wall"))
+            if (!PLShipInfoBase.IsDamageTypePhysical(dmgType) && shipComponent.SubType == ShieldModManager.Instance.GetIDFromName("Electric Wall"))
             {
                 inDmg *= 0.9f;
             }
-            else if (shipComponent.SubType == ShieldModManager.Instance.GetShieldIDFromName("Layered Shield"))
+            else if (shipComponent.SubType == ShieldModManager.Instance.GetIDFromName("Layered Shield"))
             {
                 inDmg *= Mathf.Max(0.2f, shipComponent.Current / shipComponent.CurrentMax);
             }
-            else if (dmgType == EDamageType.E_PHYSICAL && shipComponent.SubType == ShieldModManager.Instance.GetShieldIDFromName("Anti-Infected Shield") && turret != null && turret is PLSporeTurret)
+            else if (dmgType == EDamageType.E_PHYSICAL && shipComponent.SubType == ShieldModManager.Instance.GetIDFromName("Anti-Infected Shield") && turret != null && turret is PLSporeTurret)
             {
                 inDmg *= 0.2f;
             }
-            else if (shipComponent.SubType == ShieldModManager.Instance.GetShieldIDFromName("Quantum Shield"))
+            else if (shipComponent.SubType == ShieldModManager.Instance.GetIDFromName("Quantum Shield"))
             {
                 bool isPhysical = PLShipInfoBase.IsDamageTypePhysical(dmgType);
                 if ((__instance.Ship.ShieldFreqMode == 0 && !isPhysical) || (__instance.Ship.ShieldFreqMode == 1 && isPhysical))
@@ -390,7 +390,7 @@ namespace Exotic_Components
                     return true;
                 }
             }
-            else if (shipComponent.SubType == ShieldModManager.Instance.GetShieldIDFromName("The Absortion Field"))
+            else if (shipComponent.SubType == ShieldModManager.Instance.GetIDFromName("The Absortion Field"))
             {
                 __result = inDmg - inDmg * (shipComponent.GetPowerPercentInput() * 0.75f);
                 return false;
